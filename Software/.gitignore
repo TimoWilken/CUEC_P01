@@ -1,0 +1,4 @@
+# built binaries
+/build/
+/debug/
+/dist/
