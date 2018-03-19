@@ -21,7 +21,7 @@
 #define PWM_DUTY_CYCLE_MS_OFF 2.0
 
 void set_duty_cycle(float length_ms) {
-    int duty_cycle_out = _XTAL_FREQ * length_ms / 1000 / PRESCALE;
+    int duty_cycle_out = (int)(_XTAL_FREQ * length_ms / 1000 / PRESCALE);
     CCPR1L = duty_cycle_out >> 2;
     CCP1CON = 0b1111 | (duty_cycle_out & 0b11) << 4;
 }
@@ -29,7 +29,7 @@ void set_duty_cycle(float length_ms) {
 /*
  *
  */
-int main(int argc, char** argv) {
+int newmain(int argc, char** argv) {
 
     // inputs: bit = 1
     TRISA |= IN_ADC1;
